@@ -21,11 +21,13 @@ class WeatherPopulated extends StatelessWidget {
         _WeatherBackground(),
         RefreshIndicator(
           onRefresh: onRefresh,
-          child: SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            clipBehavior: Clip.none,
-            child: Center(
+          child: Align(
+            alignment: const Alignment(0, -1 / 3),
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              clipBehavior: Clip.none,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(height: 48),
                   _WeatherIcon(condition: weather.condition),
@@ -90,7 +92,7 @@ extension on WeatherCondition {
 class _WeatherBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).primaryColor;
+    final color = Theme.of(context).colorScheme.primaryContainer;
     return SizedBox.expand(
       child: DecoratedBox(
         decoration: BoxDecoration(

@@ -8,6 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(title: const Text('Cart')),
       body: const ColoredBox(
         color: Colors.yellow,
@@ -20,7 +21,7 @@ class CartPage extends StatelessWidget {
               ),
             ),
             Divider(height: 4, color: Colors.black),
-            CartTotal()
+            CartTotal(),
           ],
         ),
       ),
@@ -97,7 +98,6 @@ class CartTotal extends StatelessWidget {
                   const SnackBar(content: Text('Buying not supported yet.')),
                 );
               },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
               child: const Text('BUY'),
             ),
           ],
